@@ -1,9 +1,10 @@
 import styles from '../style/SingleResult.module.css';
 
-const SingleResults = () => {
+const SingleResults = ({title, description}) => {
     return (
         <div className={styles.container}>
-            <p>singolo risultato</p>
+            <h3>{title}</h3>
+            <p>{description}</p>
         </div>
     )
 }
