@@ -1,7 +1,10 @@
+import styles from '../style/SearchBar.module.css';
+
 const SearchBar = () => {
     return (
-        <div>
-            <h1>SearchBar</h1>
+        <div className={styles.container}>
+            <h2>Cerca un libro</h2>
+            <input type="text"/>
         </div>
     )
 }
