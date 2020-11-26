@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
 import Results from "./components/Results";
 import axios from "axios";
 import styles from "./style/SearchBar.module.css";
 
 function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
+  const [inputText, setInputText] = useState("");
 
   const fetchData = async () => {
     const myData = await axios.get(
-      "https://www.googleapis.com/books/v1/volumes?q=harry"
+      `https://www.googleapis.com/books/v1/volumes?q=${inputText}`
     );
-    console.log(myData);
     setData(myData);
   };
+
+  const handleInput = (e) => {
+    setInputText(e.target.value)
+  }
 
   return (
     <div>
@@ -22,11 +25,11 @@ function App() {
       <div className={styles.container}>
         <h2>Cerca un libro</h2>
         <div style={{display: 'flex'}}>
-          <input type="text" />
+          <input value={inputText} onChange={handleInput} type="text" />
           <button onClick={fetchData}>Cerca</button>
         </div>
       </div>
-      <Results data={data} />
+      {data.length === 0 ? <p>cerca qualcosa...</p> : <Results data={data} />}
     </div>
   );
 }
