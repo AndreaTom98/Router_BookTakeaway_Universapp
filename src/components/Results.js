@@ -11,10 +11,10 @@ const fakeData = [
     {title: 'libro 7', description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit'},
 ]
 
-const Results = () => {
+const Results = ({data}) => {
     const renderElement = () => {
-        return fakeData.map((book) => {
-            return <SingleResult title={book.title} description={book.description} />
+        return fakeData.map((book, index) => {
+            return <SingleResult key={index} title={book.title} description={book.description} />
         })
     }
     return (
