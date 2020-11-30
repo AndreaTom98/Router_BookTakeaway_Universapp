@@ -3,8 +3,8 @@ import SingleResult from './SingleResult';
 
 
 const Results = ({data}) => {
-    console.log('dati da results.js', data.data.items);
-    const myData = data.data.items;
+    console.log('dati da results.js', data.items);
+    const myData = data.items;
     const renderElement = () => {
         return myData.map((book, index) => {
             return <SingleResult key={index} title={book.volumeInfo.title} description={book.volumeInfo.description} />
