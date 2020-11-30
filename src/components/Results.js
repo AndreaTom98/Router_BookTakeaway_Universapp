@@ -7,7 +7,7 @@ const Results = ({data}) => {
     const myData = data.items;
     const renderElement = () => {
         return myData.map((book, index) => {
-            return <SingleResult key={index} title={book.volumeInfo.title} description={book.volumeInfo.description} />
+            return <SingleResult thumbnail={book.volumeInfo.imageLinks.thumbnail} key={index} title={book.volumeInfo.title} description={book.volumeInfo.description} />
         })
     }
     return (
