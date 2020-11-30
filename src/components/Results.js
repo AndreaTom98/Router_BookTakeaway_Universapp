@@ -12,7 +12,6 @@ const Results = ({data}) => {
     }
     return (
         <div className={styles.container}>
-            <h1>Results</h1>
             <div className={styles.resultsContainer}>
                {renderElement()}
             </div>
